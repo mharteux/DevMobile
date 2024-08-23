@@ -11,3 +11,4 @@ npx expo install react-native-web react-dom @expo/metro-runtime
 
 Project running
 npm run web
+npm run ios
