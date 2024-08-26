@@ -3,8 +3,8 @@ import React from 'react'
 
 const Exerc01 = ({ nome }) => {
     return (
-        <View>
-            <Text>Olá, bem vindo {nome} </Text>
+        <View >
+            <Text>Olá, bem vindo {nome}</Text>
         </View>
     )
 }
