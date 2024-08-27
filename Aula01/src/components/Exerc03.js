@@ -1,20 +1,27 @@
-import { View, Text } from 'react-native'
+import { View, Text, TextInput, StyleSheet } from 'react-native'
 import React, { useState } from 'react'
 
 const Exerc03 = () => {
 
-    const [first, setfirst] = useState('')
+    const [text, setText] = useState('')
 
     return (
-        <View>
-            <Text>Exerc03</Text>
+        <View style={styles.container}>
+            <TextInput
+                value={text}
+                onChangeText={setText}
+                placeholder='Digite algo aqui...'
+            />
+            <Text>Você digitou {text}</Text>
         </View>
     )
 }
 
 const styles = StyleSheet.create({
     container: {
-        alignItems: 'center'
+        alignItems: 'center',
+        justifyContent: 'center',
+        padding: 100
     }
 })
 
