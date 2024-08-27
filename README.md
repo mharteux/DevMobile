@@ -13,7 +13,7 @@ Project running
 npm run web
 npm run ios
 
-# IMG Exercícios
+# IMG Exercícios Aula01
 
 Exerc01
 
