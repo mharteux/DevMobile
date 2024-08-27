@@ -6,12 +6,14 @@ import React from 'react'
 import Exerc04 from './src/components/Exerc04';
 
 const App = () => {
+  const itens = ['Mamão', 'Leite', 'Pão', 'Morango']
+
   return (
     <View>
       {/*<Exerc01 nome='Matheus' />*/}
       {/*<Exerc02 />*/}
       {/*<Exerc03 />*/}
-      <Exerc04 />
+      <Exerc04 itens={itens} />
     </View>
   );
 }
