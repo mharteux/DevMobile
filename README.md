@@ -1,15 +1,15 @@
 # DevMobile
  Desenvolvimento de dispositivos móveis
 
-Macs commands
+Macs commands:
 
-Create project
+- Create project
 npx create-expo-app@latest MeuPrimeiroApp --template blank
 
-Project working on web
+- Project working on web
 npx expo install react-native-web react-dom @expo/metro-runtime
 
-Project running
+- Project running
 npm run web
 npm run ios
 
