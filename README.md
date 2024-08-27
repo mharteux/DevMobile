@@ -18,3 +18,5 @@ npm run ios
 Exerc01
 
 ![exerc01ios](https://github.com/mharteux/DevMobile/blob/main/Img-readme/exerc01-ios.png)
+
+![exerc02ios](https://github.com/mharteux/DevMobile/blob/main/Img-readme/exerc02-ios.png)
