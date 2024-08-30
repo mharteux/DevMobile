@@ -1,5 +1,5 @@
 # DevMobile
- Desenvolvimento de dispositivos móveis
+Desenvolvimento de dispositivos móveis
 
 Macs commands:
 
