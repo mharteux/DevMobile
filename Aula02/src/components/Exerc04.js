@@ -1,7 +1,7 @@
 import { View, Text, StyleSheet } from 'react-native'
 import React from 'react'
 
-const Exerc01 = () => {
+const Exerc04 = () => {
     return (
         <View style={styles.container}>
             <View style={styles.box1}><Text>1</Text></View>
@@ -13,27 +13,26 @@ const Exerc01 = () => {
 
 const styles = StyleSheet.create({
     container: {
-        flex: 1,
-        backgroundColor: '#0000',
+        backgroundColor: '#fff',
         alignItems: 'center',
         justifyContent: 'center',
-        width: '100%'
+        height: '50%'
     },
     box1: {
-        height: 100,
-        width: '100%',
-        backgroundColor: 'red'
+        flex: 1,
+        backgroundColor: 'red',
+        width: 100
     },
     box2: {
-        height: 100,
-        width: '100%',
-        backgroundColor: 'blue'
+        flex: 1,
+        backgroundColor: 'blue',
+        width: 100
     },
     box3: {
-        height: 100,
-        width: '100%',
-        backgroundColor: 'green'
+        flex: 1,
+        backgroundColor: 'green',
+        width: 100
     }
 })
 
-export default Exerc01
+export default Exerc04

@@ -1,10 +1,17 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
+import Exerc01 from './src/components/Exerc01';
+import Exerc02 from './src/components/Exerc02';
+import Exerc03 from './src/components/Exerc03';
+import Exerc04 from './src/components/Exerc04';
 
 export default function App() {
   return (
     <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
+      {/* <Exerc01 /> */}
+      {/* <Exerc02 /> */}
+      {/* <Exerc03 /> */}
+      <Exerc04 />
       <StatusBar style="auto" />
     </View>
   );
