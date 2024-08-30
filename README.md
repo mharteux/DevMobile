@@ -24,11 +24,11 @@ Exerc02
 
 Exerc03
 
-![exerc02ios](https://github.com/mharteux/DevMobile/blob/main/Img-readme/ImgAula01/exerc03-ios.png)
+![exerc03ios](https://github.com/mharteux/DevMobile/blob/main/Img-readme/ImgAula01/exerc03-ios.png)
 
 Exerc04
 
-![exerc02ios](https://github.com/mharteux/DevMobile/blob/main/Img-readme/ImgAula01/exerc04-ios.png)
+![exerc04ios](https://github.com/mharteux/DevMobile/blob/main/Img-readme/ImgAula01/exerc04-ios.png)
 
 ## IMG Exercícios Aula02
 
@@ -42,8 +42,12 @@ Exerc02
 
 Exerc03
 
-![exerc02ios](https://github.com/mharteux/DevMobile/blob/main/Img-readme/ImgAula02/exerc03-ios.png)
+![exerc03ios](https://github.com/mharteux/DevMobile/blob/main/Img-readme/ImgAula02/exerc03-ios.png)
 
 Exerc04
 
-![exerc02ios](https://github.com/mharteux/DevMobile/blob/main/Img-readme/ImgAula02/exerc04-ios.png)
+![exerc04ios](https://github.com/mharteux/DevMobile/blob/main/Img-readme/ImgAula02/exerc04-ios.png)
+
+Exerc05 Challenge
+
+![exerc05ios](https://github.com/mharteux/DevMobile/blob/main/Img-readme/ImgAula02/exerc05Challenge-ios.png)
