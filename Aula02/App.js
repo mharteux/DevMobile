@@ -4,6 +4,7 @@ import Exerc01 from './src/components/Exerc01';
 import Exerc02 from './src/components/Exerc02';
 import Exerc03 from './src/components/Exerc03';
 import Exerc04 from './src/components/Exerc04';
+import Exerc05Challenge from './src/components/Exerc05Challenge';
 
 export default function App() {
   return (
@@ -11,7 +12,8 @@ export default function App() {
       {/* <Exerc01 /> */}
       {/* <Exerc02 /> */}
       {/* <Exerc03 /> */}
-      <Exerc04 />
+      {/* <Exerc04 /> */}
+      <Exerc05Challenge />
       <StatusBar style="auto" />
     </View>
   );
