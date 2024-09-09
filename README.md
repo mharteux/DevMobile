@@ -6,6 +6,9 @@ Macs commands:
 - **Create project:**  
 npx create-expo-app@latest MeuPrimeiroApp --template blank
 
+- **NPM install**
+npm install  
+
 - **Project working on web:**  
 npx expo install react-native-web react-dom @expo/metro-runtime
 
