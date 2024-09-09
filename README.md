@@ -16,9 +16,9 @@ npx expo install react-native-web react-dom @expo/metro-runtime
 npm start
 
 - **React Navigation:**  
-nnpm install @react-navigation/native
-npm install react-native-screens react-native-safe-area-context
-npm install @react-navigation/native-stack
+npm install @react-navigation/native  
+npm install react-native-screens react-native-safe-area-context  
+npm install @react-navigation/native-stack  
 
 ## IMG Exercícios Aula01
 
