@@ -54,3 +54,13 @@ Exerc04
 Exerc05 Challenge
 
 ![exerc05ios](https://github.com/mharteux/DevMobile/blob/main/Img-readme/ImgAula02/exerc05Challenge-ios.png)
+
+## IMG Exercícios Aula02
+
+Go to Details
+
+![go-to-detail](https://github.com/mharteux/DevMobile/blob/main/Img-readme/ImgAula03/01go-to-details.png)
+
+Details Screen
+
+![details-screen](https://github.com/mharteux/DevMobile/blob/main/Img-readme/ImgAula03/02details-screen.png)
