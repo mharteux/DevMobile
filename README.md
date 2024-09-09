@@ -3,10 +3,8 @@ Desenvolvimento de dispositivos móveis
 
 Macs commands:
 
-- **Create project:**  
+- **Create project & NPM install**  
 npx create-expo-app@latest MeuPrimeiroApp --template blank
-
-- **NPM install:**
 npm install  
 
 - **Project working on web:**  
