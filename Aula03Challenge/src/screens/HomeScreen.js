@@ -4,18 +4,19 @@ import React from 'react'
 const HomeScreen = ({ navigation }) => {
 
     const users = [
-        { id: 1, name: 'John Doe', age: 30, gender: 'male' },
-        { id: 2, name: 'Jane Doe', age: 25, gender: 'female' }
+        { id: 1, name: 'Matheus', age: 30, gender: 'male' },
+        { id: 2, name: 'Maria', age: 26, gender: 'female' }
     ]
 
     return (
         <View style={styles.container}>
-            { /* Falta o onPress */
+            {
                 users.map((user) => (
                     <TouchableOpacity
+                        onPress={() => navigation.navigate('Details', { user })}
                         key={user.id}
-                        style={styles.userCard}
-                    >
+                        style={styles.userCard}>
+
                         <Text style={styles.userName}>
                             {user.name}
                         </Text>
