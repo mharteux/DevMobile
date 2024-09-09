@@ -3,9 +3,11 @@ Desenvolvimento de dispositivos móveis
 
 Macs commands:
 
-- **Create project & NPM install**  
+- **Create project**  
 npx create-expo-app@latest MeuPrimeiroApp --template blank
-npm install  
+
+- **NPM install:**  
+npm install
 
 - **Project working on web:**  
 npx expo install react-native-web react-dom @expo/metro-runtime
