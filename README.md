@@ -69,3 +69,17 @@ Go to Details
 Details Screen
 
 ![details-screen](https://github.com/mharteux/DevMobile/blob/main/Img-readme/ImgAula03/02details-screen.png)
+
+## IMG Exercícios Aula03 Challenge
+
+Menu
+
+![go-to-detail](https://github.com/mharteux/DevMobile/blob/main/Img-readme/ImgAula03Challenge/challenge01.png)
+
+Matheus Detail
+
+![go-to-detail](https://github.com/mharteux/DevMobile/blob/main/Img-readme/ImgAula03Challenge/challenge02.png)
+
+Maria Detail
+
+![go-to-detail](https://github.com/mharteux/DevMobile/blob/main/Img-readme/ImgAula03Challenge/challenge03.png)
