@@ -6,15 +6,17 @@ import {
   updateDoc,
   doc,
   deleteDoc,
+  query,
+  where,
 } from "firebase/firestore";
 import { db } from "../config/firebaseConfig";
-import { AuthContext } from "./AuthContext"; // Importe o AuthContext
+import { AuthContext } from "./AuthContext";
 
 const CartoesEstudoContext = createContext();
 
 export const ProvedorCartoesEstudo = ({ children }) => {
   const [cartoes, setCartoes] = useState([]);
-  const { user } = useContext(AuthContext); // Verifique o usuário autenticado
+  const { user } = useContext(AuthContext); // Pega o usuário autenticado
 
   useEffect(() => {
     if (user) {
@@ -24,13 +26,13 @@ export const ProvedorCartoesEstudo = ({ children }) => {
 
   const carregarCartoes = async () => {
     try {
-      const cartoesSnapshot = await getDocs(collection(db, "cartoes"));
+      const q = query(collection(db, "cartoes"), where("uid", "==", user.uid)); // Filtra cards pelo UID do usuário
+      const cartoesSnapshot = await getDocs(q);
       const cartoesList = cartoesSnapshot.docs.map((doc) => ({
         id: doc.id,
         ...doc.data(),
       }));
       setCartoes(cartoesList);
-      console.log("Cartões carregados do Firestore:", cartoesList);
     } catch (error) {
       console.error("Erro ao carregar cartões:", error);
     }
@@ -38,9 +40,9 @@ export const ProvedorCartoesEstudo = ({ children }) => {
 
   const adicionarCartao = async (cartao) => {
     try {
-      const docRef = await addDoc(collection(db, "cartoes"), cartao);
-      const novoCartao = { id: docRef.id, ...cartao };
-      setCartoes([...cartoes, novoCartao]);
+      const novoCartao = { ...cartao, uid: user.uid }; // Adiciona o UID do usuário ao novo card
+      const docRef = await addDoc(collection(db, "cartoes"), novoCartao);
+      setCartoes([...cartoes, { id: docRef.id, ...novoCartao }]);
       console.log("Cartão adicionado ao Firestore:", novoCartao);
     } catch (error) {
       console.error("Erro ao adicionar cartão:", error);
@@ -50,28 +52,13 @@ export const ProvedorCartoesEstudo = ({ children }) => {
   const atualizarCartao = async (id, atualizacoes) => {
     try {
       const cartaoRef = doc(db, "cartoes", id);
-
-      const dataTerminoFormatada =
-        atualizacoes.dataTermino instanceof Date
-          ? atualizacoes.dataTermino.toISOString()
-          : atualizacoes.dataTermino;
-
-      await updateDoc(cartaoRef, {
-        ...atualizacoes,
-        dataTermino: dataTerminoFormatada,
-      });
+      await updateDoc(cartaoRef, atualizacoes);
       setCartoes(
         cartoes.map((cartao) =>
-          cartao.id === id
-            ? { ...cartao, ...atualizacoes, dataTermino: dataTerminoFormatada }
-            : cartao
+          cartao.id === id ? { ...cartao, ...atualizacoes } : cartao
         )
       );
-      console.log("Cartão atualizado:", {
-        id,
-        ...atualizacoes,
-        dataTermino: dataTerminoFormatada,
-      });
+      console.log("Cartão atualizado:", { id, ...atualizacoes });
     } catch (error) {
       console.error("Erro ao atualizar cartão:", error);
     }

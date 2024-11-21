@@ -1,8 +1,16 @@
-import { View, Text, TextInput, Button, StyleSheet } from "react-native";
 import React, { useContext, useState, useEffect } from "react";
+import {
+  View,
+  Text,
+  TextInput,
+  Button,
+  StyleSheet,
+  TouchableOpacity,
+} from "react-native";
 import { Picker } from "@react-native-picker/picker";
 import CartoesEstudoContext from "../contexts/CartoesEstudoContext";
 import DateTimePickerModal from "react-native-modal-datetime-picker";
+import { MaterialIcons } from "react-native-vector-icons";
 
 const EdicaoCartaoScreen = ({ route, navigation }) => {
   const { id } = route.params || {};
@@ -34,39 +42,19 @@ const EdicaoCartaoScreen = ({ route, navigation }) => {
       status,
       dataTermino: dataTermino.toISOString(),
     };
-    console.log("Dados do cartão a ser salvo:", dadosCartao);
-
     if (id) {
-      console.log("Atualizando cartão existente com ID:", id);
       atualizarCartao(id, dadosCartao);
     } else {
-      console.log("Adicionando novo cartão");
       adicionarCartao(dadosCartao);
     }
-
     navigation.goBack();
   };
 
-  const exibirDataPicker = () => {
-    setMostraDataPicker(true);
-  };
-
-  const ocultarDataPicker = () => {
-    setMostraDataPicker(false);
-  };
-
+  const exibirDataPicker = () => setMostraDataPicker(true);
+  const ocultarDataPicker = () => setMostraDataPicker(false);
   const confirmarData = (data) => {
     setDataTermino(data);
     ocultarDataPicker();
-  };
-
-  const formatarData = (data) => {
-    const dia = data.getDate().toString().padStart(2, "0");
-    const mes = (data.getMonth() + 1).toString().padStart(2, "0");
-    const ano = data.getFullYear();
-    const horas = data.getHours().toString().padStart(2, "0");
-    const minutos = data.getMinutes().toString().padStart(2, "0");
-    return `${dia}/${mes}/${ano} ${horas}:${minutos}`;
   };
 
   return (
@@ -78,6 +66,7 @@ const EdicaoCartaoScreen = ({ route, navigation }) => {
         onChangeText={setTitulo}
         placeholder="Título do Cartão..."
       />
+
       <Text style={styles.label}>Notas:</Text>
       <TextInput
         style={styles.input}
@@ -86,12 +75,12 @@ const EdicaoCartaoScreen = ({ route, navigation }) => {
         placeholder="Insira uma descrição..."
         multiline
       />
-      <Text style={styles.label}>Data/Hora de Término:</Text>
-      <Button
-        title="Escolher Data"
-        onPress={exibirDataPicker}
-        color="#32cd32"
-      />
+
+      <Text style={styles.label}>Data de Término:</Text>
+      <TouchableOpacity style={styles.button} onPress={exibirDataPicker}>
+        <MaterialIcons name="date-range" size={20} color="#ffffff" />
+        <Text style={styles.buttonText}>Escolher Data</Text>
+      </TouchableOpacity>
       <DateTimePickerModal
         isVisible={mostraDataPicker}
         mode="datetime"
@@ -99,7 +88,7 @@ const EdicaoCartaoScreen = ({ route, navigation }) => {
         onCancel={ocultarDataPicker}
       />
       <Text style={styles.selectedDateLabel}>
-        Data selecionada: {formatarData(dataTermino)}
+        Data selecionada: {dataTermino.toLocaleDateString()}
       </Text>
 
       <Text style={styles.label}>Status:</Text>
@@ -112,7 +101,11 @@ const EdicaoCartaoScreen = ({ route, navigation }) => {
         <Picker.Item label="Em Progresso" value="in_progress" />
         <Picker.Item label="Concluído" value="done" />
       </Picker>
-      <Button title="Salvar" onPress={salvar} color="#32cd32" />
+
+      <TouchableOpacity style={styles.saveButton} onPress={salvar}>
+        <MaterialIcons name="save" size={20} color="#ffffff" />
+        <Text style={styles.buttonText}>Salvar</Text>
+      </TouchableOpacity>
     </View>
   );
 };
@@ -121,32 +114,48 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     padding: 20,
-    backgroundColor: "#f0f4f8",
+    backgroundColor: "#f7f7f7",
   },
   label: {
-    fontSize: 18,
-    fontWeight: "600",
-    marginBottom: 8,
+    fontSize: 16,
+    fontWeight: "bold",
     color: "#333",
+    marginBottom: 5,
+  },
+  input: {
+    borderColor: "#ddd",
+    backgroundColor: "#fff",
+    padding: 12,
+    borderRadius: 8,
+    fontSize: 16,
+    marginBottom: 20,
+  },
+  button: {
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "center",
+    backgroundColor: "#007bff",
+    padding: 10,
+    borderRadius: 8,
+  },
+  saveButton: {
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "center",
+    backgroundColor: "#32cd32",
+    padding: 10,
+    borderRadius: 8,
+    marginTop: 20,
+  },
+  buttonText: {
+    color: "#fff",
+    fontSize: 16,
+    marginLeft: 8,
   },
   selectedDateLabel: {
     fontSize: 16,
     marginBottom: 15,
     color: "#555",
-  },
-  input: {
-    fontSize: 16,
-    borderWidth: 1,
-    borderColor: "#d1d5db",
-    padding: 12,
-    marginBottom: 20,
-    borderRadius: 8,
-    backgroundColor: "#ffffff",
-    shadowColor: "#000",
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.1,
-    shadowRadius: 4,
-    elevation: 2,
   },
 });
 
