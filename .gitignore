@@ -33,6 +33,4 @@ yarn-error.*
 
 # typescript
 *.tsbuildinfo
-
-# FireBase Config
-config/
+study-app/.env
