@@ -1,3 +1,4 @@
+// Importações necessárias do React, React Native e Context API
 import React, { useContext } from "react";
 import {
   View,
@@ -10,9 +11,14 @@ import {
 import CartoesEstudoContext from "../contexts/CartoesEstudoContext";
 import { MaterialIcons } from "react-native-vector-icons";
 
+// Tela principal para exibição dos cartões de estudo.
+// Lista cartões organizados por status: backlog, em progresso, concluídos.
+// Permite adicionar, editar e excluir cartões.
 const ListaCartaoScreen = ({ navigation }) => {
+  // Obtém os dados e métodos do contexto de cartões
   const { cartoes, excluirCartao } = useContext(CartoesEstudoContext);
 
+  // Confirmação antes de excluir um cartão.
   const confirmarExclusao = (id) => {
     Alert.alert(
       "Excluir Cartão",
@@ -28,6 +34,8 @@ const ListaCartaoScreen = ({ navigation }) => {
     );
   };
 
+  // Renderiza um cartão individual.
+  // Aplica cores diferentes com base no status do cartão.
   const renderizarCartao = ({ item }) => {
     let cardStyle = styles.card;
     if (item.status === "backlog") {
@@ -46,12 +54,15 @@ const ListaCartaoScreen = ({ navigation }) => {
           Data: {new Date(item.dataTermino).toLocaleDateString()}
         </Text>
         <View style={styles.cardButtons}>
+          {/* Botão para editar o cartão */}
           <TouchableOpacity
             onPress={() => navigation.navigate("EdicaoCartao", { id: item.id })}
             style={styles.iconButton}
           >
             <MaterialIcons name="edit" size={18} color="#007bff" />
           </TouchableOpacity>
+
+          {/* Botão para excluir o cartão */}
           <TouchableOpacity
             onPress={() => confirmarExclusao(item.id)}
             style={styles.iconButton}
@@ -63,6 +74,7 @@ const ListaCartaoScreen = ({ navigation }) => {
     );
   };
 
+  // Filtra os cartões de estudo por status
   const cartoesAgrupadosPorStatus = (status) =>
     cartoes.filter((cartao) => cartao.status === status);
 
@@ -85,6 +97,7 @@ const ListaCartaoScreen = ({ navigation }) => {
         </Text>
       </TouchableOpacity>
 
+      {/* Lista de cartões em progresso */}
       <Text style={styles.sectionTitle}>Em Progresso</Text>
       <FlatList
         data={cartoesAgrupadosPorStatus("in_progress")}
@@ -96,6 +109,7 @@ const ListaCartaoScreen = ({ navigation }) => {
 
       <View style={styles.divider} />
 
+      {/* Lista de cartões concluídos */}
       <Text style={styles.sectionTitle}>Concluído</Text>
       <FlatList
         data={cartoesAgrupadosPorStatus("done")}
@@ -107,6 +121,7 @@ const ListaCartaoScreen = ({ navigation }) => {
 
       <View style={styles.divider} />
 
+      {/* Lista de cartões em backlog */}
       <Text style={styles.sectionTitle}>Backlog</Text>
       <FlatList
         data={cartoesAgrupadosPorStatus("backlog")}
@@ -116,6 +131,7 @@ const ListaCartaoScreen = ({ navigation }) => {
         showsHorizontalScrollIndicator={false}
       />
 
+      {/* Botão para adicionar um novo cartão */}
       <TouchableOpacity
         style={styles.addButton}
         onPress={() => navigation.navigate("EdicaoCartao")}
@@ -127,6 +143,7 @@ const ListaCartaoScreen = ({ navigation }) => {
   );
 };
 
+// Estilização da tela
 const styles = StyleSheet.create({
   container: {
     flex: 1,

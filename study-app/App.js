@@ -1,3 +1,4 @@
+// Importações do React, React Navigation e Context API
 import React, { useContext } from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
@@ -11,17 +12,22 @@ import RegistroScreen from "./src/screens/RegistroScreen";
 import { MaterialIcons } from "react-native-vector-icons";
 import { TouchableOpacity } from "react-native";
 
+// Pilha de Navegação
 const Stack = createStackNavigator();
 
+// Config e gerencia as rotas do aplicativo
 const AppNavigator = () => {
+  // Obtém o contexto de autenticação
   const { user, loading, logout } = useContext(AuthContext);
 
+  // exibe uma tela em branco enquanto os dados de autenticação estão carregando
   if (loading) {
     return null;
   }
 
   return (
     <Stack.Navigator initialRouteName={user ? "ListaCartao" : "Login"}>
+      {/* Rotas protegidas (requerem autenticação)*/}
       {user ? (
         <>
           <Stack.Screen
@@ -48,6 +54,7 @@ const AppNavigator = () => {
           />
         </>
       ) : (
+        // Rotas públicas (não requerem autenticação)
         <>
           <Stack.Screen
             name="Login"
@@ -65,6 +72,8 @@ const AppNavigator = () => {
   );
 };
 
+// Componente principal do aplicativo
+// Envolve a aplicação com os provedores de contexto
 const App = () => {
   return (
     <AuthProvider>

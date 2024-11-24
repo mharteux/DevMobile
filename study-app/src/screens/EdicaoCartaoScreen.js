@@ -1,3 +1,4 @@
+// Importações necessárias do React, React Native e bibliotecas auxiliares
 import React, { useContext, useState, useEffect } from "react";
 import {
   View,
@@ -12,12 +13,19 @@ import CartoesEstudoContext from "../contexts/CartoesEstudoContext";
 import DateTimePickerModal from "react-native-modal-datetime-picker";
 import { MaterialIcons } from "react-native-vector-icons";
 
+// Tela para criar ou editar cartões de estudo.
+// É usada tanto para criar novos cartões quanto para editar existentes, dependendo da rota.
 const EdicaoCartaoScreen = ({ route, navigation }) => {
+  // Obtém o ID do cartão da rota, caso seja edição
   const { id } = route.params || {};
+
+  // Pega os métodos e dados do contexto
   const { cartoes, adicionarCartao, atualizarCartao } =
     useContext(CartoesEstudoContext);
+  // Encontra o cartão no estado global (caso seja edição)
   const cartao = cartoes.find((c) => c.id === id) || {};
 
+  // Estados para os campos do formulário
   const [titulo, setTitulo] = useState(cartao.titulo || "");
   const [notas, setNotas] = useState(cartao.notas || "");
   const [status, setStatus] = useState(cartao.status || "backlog");
@@ -26,6 +34,7 @@ const EdicaoCartaoScreen = ({ route, navigation }) => {
   );
   const [mostraDataPicker, setMostraDataPicker] = useState(false);
 
+  // Atualiza os estados com os valores do cartão ao entrar na tela de edição.
   useEffect(() => {
     if (id) {
       setTitulo(cartao.titulo);
@@ -35,6 +44,8 @@ const EdicaoCartaoScreen = ({ route, navigation }) => {
     }
   }, [id, cartao]);
 
+  // Salva os dados do cartão no Firestore.
+  // Chama `adicionarCartao` ou `atualizarCartao` dependendo se o cartão é novo ou existente.
   const salvar = () => {
     const dadosCartao = {
       titulo,
@@ -50,6 +61,7 @@ const EdicaoCartaoScreen = ({ route, navigation }) => {
     navigation.goBack();
   };
 
+  // Funções auxiliares para manipular o DateTimePicker.
   const exibirDataPicker = () => setMostraDataPicker(true);
   const ocultarDataPicker = () => setMostraDataPicker(false);
   const confirmarData = (data) => {
@@ -67,6 +79,7 @@ const EdicaoCartaoScreen = ({ route, navigation }) => {
         placeholder="Título do Cartão..."
       />
 
+      {/* Campo de Notas */}
       <Text style={styles.label}>Notas:</Text>
       <TextInput
         style={styles.input}
@@ -76,6 +89,7 @@ const EdicaoCartaoScreen = ({ route, navigation }) => {
         multiline
       />
 
+      {/* Campo de Data de Término */}
       <Text style={styles.label}>Data de Término:</Text>
       <TouchableOpacity style={styles.button} onPress={exibirDataPicker}>
         <MaterialIcons name="date-range" size={20} color="#ffffff" />
@@ -91,6 +105,7 @@ const EdicaoCartaoScreen = ({ route, navigation }) => {
         Data selecionada: {dataTermino.toLocaleDateString()}
       </Text>
 
+      {/* Campo de Status */}
       <Text style={styles.label}>Status:</Text>
       <Picker
         selectedValue={status}
@@ -102,6 +117,7 @@ const EdicaoCartaoScreen = ({ route, navigation }) => {
         <Picker.Item label="Concluído" value="done" />
       </Picker>
 
+      {/* Botão Salvar */}
       <TouchableOpacity style={styles.saveButton} onPress={salvar}>
         <MaterialIcons name="save" size={20} color="#ffffff" />
         <Text style={styles.buttonText}>Salvar</Text>
@@ -110,6 +126,7 @@ const EdicaoCartaoScreen = ({ route, navigation }) => {
   );
 };
 
+// Estilização da tela
 const styles = StyleSheet.create({
   container: {
     flex: 1,

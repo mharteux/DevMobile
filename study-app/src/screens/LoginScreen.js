@@ -1,3 +1,4 @@
+// Importações necessárias do React, React Native e Firebase
 import React, { useState } from "react";
 import {
   View,
@@ -8,13 +9,18 @@ import {
   StyleSheet,
   Image,
 } from "react-native";
-import { signInWithEmailAndPassword } from "firebase/auth";
-import { auth } from "../config/firebaseConfig";
+import { signInWithEmailAndPassword } from "firebase/auth"; // Firebase para login com email/senha
+import { auth } from "../config/firebaseConfig"; // Configuração do Firebase
 
+// Tela de Login
+// Permite que o usuário insira email e senha para autenticar.
+// Redireciona o usuário para a tela principal após login bem-sucedido.
 const LoginScreen = ({ navigation }) => {
+  // Estados para capturar email e senha
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
+  // Realiza o login usando o Firebase Authentication.
   const handleLogin = async () => {
     try {
       await signInWithEmailAndPassword(auth, email, password);
@@ -26,10 +32,12 @@ const LoginScreen = ({ navigation }) => {
 
   return (
     <View style={styles.container}>
+      {/* Logo do aplicativo */}
       <Image source={require("../../assets/logo.png")} style={styles.logo} />
       <Text style={styles.title}>Bem-vindo</Text>
       <Text style={styles.subtitle}>Faça login para continuar</Text>
 
+      {/* Campo de email */}
       <TextInput
         placeholder="Email"
         value={email}
@@ -38,6 +46,8 @@ const LoginScreen = ({ navigation }) => {
         keyboardType="email-address"
         autoCapitalize="none"
       />
+
+      {/* Campo de senha */}
       <TextInput
         placeholder="Senha"
         value={password}
@@ -47,10 +57,12 @@ const LoginScreen = ({ navigation }) => {
         autoCapitalize="none"
       />
 
+      {/* Botão de login */}
       <TouchableOpacity style={styles.button} onPress={handleLogin}>
         <Text style={styles.buttonText}>Entrar</Text>
       </TouchableOpacity>
 
+      {/* Link para a tela de registro */}
       <TouchableOpacity onPress={() => navigation.navigate("Registro")}>
         <Text style={styles.registerText}>Criar Conta</Text>
       </TouchableOpacity>
@@ -58,6 +70,7 @@ const LoginScreen = ({ navigation }) => {
   );
 };
 
+// Estilização da tela
 const styles = StyleSheet.create({
   container: {
     flex: 1,
