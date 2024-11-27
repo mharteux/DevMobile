@@ -39,7 +39,7 @@ export const AuthProvider = ({ children }) => {
   // O componente `Provider` envolve toda a aplicação e fornece os seguintes dados:
   // `user`: Usuário autenticado (ou null).
   // `loading`: Indica se os dados de autenticação ainda estão carregando.
-  //`logout`: Função para desconectar o usuário.
+  // `logout`: Função para desconectar o usuário.
   return (
     <AuthContext.Provider value={{ user, setUser, loading, logout }}>
       {children}
