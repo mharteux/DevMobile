@@ -78,12 +78,22 @@ Tela de Login
 
 ![telaLogin](https://github.com/mharteux/DevMobile/blob/main/study-app/Img-readme/01login.png)
 
+Login Realizado
+
 ![loginRealizado](https://github.com/mharteux/DevMobile/blob/main/study-app/Img-readme/02login-realizado.png)
+
+Editar Cartão
 
 ![editarCartao](https://github.com/mharteux/DevMobile/blob/main/study-app/Img-readme/03editar-cartao.png)
 
+Editar Data
+
 ![editarData](https://github.com/mharteux/DevMobile/blob/main/study-app/Img-readme/04editar-data.png)
 
+Editar Hora
+
 ![editarHora](https://github.com/mharteux/DevMobile/blob/main/study-app/Img-readme/05editar-hora.png)
+
+Cartão Adicionado
 
 ![cartaoAdicionado](https://github.com/mharteux/DevMobile/blob/main/study-app/Img-readme/06cartao-adicionado.png)
