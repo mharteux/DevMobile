@@ -70,9 +70,7 @@ TarefasVencimentoProximoScreen.js (Tela para exibir as tarefas próximas do venc
 
 App.js (Configura e gerencia as rotas do aplicativo)
 
-##
-
-**ReadMe com screenshots o aplicativo study-app**
+# ReadMe com screenshots o aplicativo study-app
 
 Tela de Login
 
