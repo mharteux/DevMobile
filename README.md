@@ -1,24 +1,31 @@
 # DevMobile
+
 Desenvolvimento de dispositivos móveis
+
+**ReadMe com screenshots para aulas 01, 02, 03, 03Challenge e 04**
+
+---
 
 Macs commands:
 
 - **Create project**  
-npx create-expo-app@latest MeuPrimeiroApp --template blank
+  npx create-expo-app@latest MeuPrimeiroApp --template blank
 
 - **NPM install:**  
-npm install
+  npm install
 
 - **Project working on web:**  
-npx expo install react-native-web react-dom @expo/metro-runtime
+  npx expo install react-native-web react-dom @expo/metro-runtime
 
 - **Project running:**  
-npm start
+  npm start
 
 - **React Navigation:**  
-npm install @react-navigation/native  
-npm install react-native-screens react-native-safe-area-context  
-npm install @react-navigation/native-stack  
+  npm install @react-navigation/native  
+  npm install react-native-screens react-native-safe-area-context  
+  npm install @react-navigation/native-stack
+
+---
 
 ## IMG Exercícios Aula01
 
